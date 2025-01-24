@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>will you be my valentine my dear baby ? </title>
+    <style>
+        body {
+            background: linear-gradient(to right, #ff0000, #cc0000);
+            font-family: 'Arial', sans-serif;
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        h1 {
+            font-size: 4rem;
+            font-weight: bold;
+            letter-spacing: 5px;
+            color: white;
+            margin-top: 50px;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.6);
+            animation: floatText 5s ease-in-out infinite;
+        }
+        .countdown {
+            font-size: 1.8rem;
+            margin-top: 20px;
+            color: white;
+            animation: fadeIn 3s ease-in-out;
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        .heart {
+            position: absolute;
+            top: 25%;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 5rem;
+            color: #FF6F61;
+            animation: floatHearts 6s ease-in-out infinite;
+        }
+        @keyframes floatHearts {
+            0% {
+                transform: translateX(-50%) translateY(0) scale(1);
+            }
+            50% {
+                transform: translateX(-50%) translateY(-150px) scale(1.2);
+            }
+            100% {
+                transform: translateX(-50%) translateY(0) scale(1);
+            }
+        }
+        .message {
+            font-size: 1.4rem;
+            color: white;
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(37, 12, 4, 0.7);
+            border-radius: 15px;
+            max-width: 80%;
+            text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+        }
+        .button {
+            background-color: #FF4F58;
+            color: white;
+            font-size: 1.2rem;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: 0.3s;
+            animation: pulse 1.5s infinite;
+        }
+        .button:hover {
+            background-color: #FF2647;
+        }
+        .button:active {
+            transform: scale(0.98);
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        .floating-heart {
+            position: absolute;
+            animation: floatingHearts 5s infinite linear;
+            font-size: 3rem;
+            color: #FF6F61;
+            z-index: -1;
+        }
+        .floating-heart:nth-child(odd) {
+            animation-duration: 7s;
+        }
+        .floating-heart:nth-child(even) {
+            animation-duration: 9s;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Will you be my valentine my dear babyyy ? 🥹💗</h1>
+
+    <div class="countdown" id="countdown">
+        Counting down to the big day... ❤️
+    </div>
+
+    <div class="heart">♥</div>
+
+    <div class="message">
+        <p>I really really love you my baby girl,Mwaaaahhhhhhhhh😘😘💗💗</p>
+    </div>
+
+    <button class="button" onclick="window.location.href='feelings.html'">See My Heart 💌</button>
+    <button class="button" onclick="window.location.href='countdown.html'">The Countdown <3</button>
+    <button class="button" onclick="window.location.href='love.html'">Say yess my love </button>
+    <!-- Floating Hearts -->
+    <div class="floating-heart" style="top: 10%; left: 30%;">♥</div>
+    <div class="floating-heart" style="top: 20%; left: 70%;">♥</div>
+    <div class="floating-heart" style="top: 50%; left: 10%;">♥</div>
+    <div class="floating-heart" style="top: 60%; left: 50%;">♥</div>
+    <div class="floating-heart" style="top: 30%; left: 80%;">♥</div>
+    
+    <script>
+        // Countdown function
+        function updateCountdown() {
+            const valentineDate = new Date('2025-02-14T00:00:00');
+            const currentDate = new Date();
+            const diff = valentineDate - currentDate;
+            
+            if (diff <= 0) {
+                document.getElementById('countdown').innerHTML = "Happy Valentine's Day!";
+            } else {
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+                
+                document.getElementById('countdown').innerHTML = `Only ${days} days, ${hours} hours, ${minutes} minutes, and ${seconds} seconds left!`;
+            }
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
+
+</body>
+</html>

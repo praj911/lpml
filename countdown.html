@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Countdown to Love</title>
+    <style>
+        body {
+            background: linear-gradient(to right, #ff0000, #cc0000);
+            font-family: 'Arial', sans-serif;
+            color: white;
+            text-align: center;
+            padding: 50px;
+            margin: 0;
+        }
+        h1 {
+            font-size: 3rem;
+            color: white;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.6);
+            margin-bottom: 30px;
+        }
+        .countdown-timer {
+            font-size: 2rem;
+            color: #fff;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            display: inline-block;
+            margin-top: 20px;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+        }
+        .countdown-explanation {
+            font-size: 1.5rem;
+            color: white;
+            background: rgba(0, 0, 0, 0.7);
+            margin-top: 30px;
+            padding: 20px;
+            border-radius: 15px;
+            width: 80%;
+            margin: 30px auto;
+            text-align: left;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+        }
+        .button {
+            background-color: #FF4F58;
+            color: white;
+            font-size: 1.2rem;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: 0.3s;
+        }
+        .button:hover {
+            background-color: #FF2647;
+        }
+        .button:active {
+            transform: scale(0.98);
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Countdown to Valentine's Day</h1>
+
+    <div class="countdown-timer" id="countdown-timer">
+        Counting down... ❤️
+    </div>
+
+    <div class="countdown-explanation">
+        <p>who told that people cannot celebrate valentine's day when they are in long distance relationship. No need of worrying my baby cuz your hubby is here to solve this problem 🥹💗</p>
+        <p>But for that i need the permission of my beloved.😏 so my gorgeus ,pretty,the true definition of beauty ,will you be my valentine ?😚🥹🫣💗</p>
+    </div>
+
+    <button class="button" onclick="window.location.href='feelings.html'">See My Heart 💌</button>
+    <button class="button" onclick="window.location.href='index.html'">Go Back</button>
+
+    <script>
+        // Countdown function
+        function updateCountdown() {
+            const valentineDate = new Date('2025-02-14T00:00:00');
+            const currentDate = new Date();
+            const diff = valentineDate - currentDate;
+            
+            if (diff <= 0) {
+                document.getElementById('countdown-timer').innerHTML = "Happy Valentine's Day!";
+            } else {
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+                
+                document.getElementById('countdown-timer').innerHTML = `Only ${days} days, ${hours} hours, ${minutes} minutes, and ${seconds} seconds left!`;
+            }
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
+
+</body>
+</html>
